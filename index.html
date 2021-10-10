@@ -19,8 +19,13 @@
 </body>
 
 <script>
-    var color = "#000800";
+    var color = "#008000";
     var color2 = "#3498db";
+
+    function drawing() {
+        ctx.fillStyle = ctx.fillStyle === color ? color2 : color;
+        ctx.fill();
+    }
 
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
@@ -29,6 +34,9 @@
     ctx.stroke();
     ctx.fillStyle = color;
     ctx.fill();
+
+    window.requestAnimationFrame(drawing);
+    setInterval(drawing,1000);
 
 </script>
 
