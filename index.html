@@ -19,11 +19,17 @@
 </body>
 
 <script>
+    var color = "#000800";
+    var color2 = "#3498db";
+
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     ctx.beginPath();
     ctx.arc(100, 75, 50, 0, 2 * Math.PI);
     ctx.stroke();
+    ctx.fillStyle = color;
+    ctx.fill();
+
 </script>
 
 </html>
