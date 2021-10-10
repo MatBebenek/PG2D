@@ -8,17 +8,22 @@
 </head>
 
 <body>
-    <span><a href="https://matbebenek.github.io/PG2D/" target="_blank">HTML</a></span>
-    <span><a href="https://github.com/MatBebenek/PG2D" target="_blank">KOD</a></span>
-    <span>Zadanie wykonane w 30%</span>
+    <div>
+        <span><a href="https://matbebenek.github.io/PG2D/" target="_blank">HTML</a></span>
+        <span><a href="https://github.com/MatBebenek/PG2D" target="_blank">KOD</a></span>
+        <span>Zadanie wykonane w 30%</span>
+    </div>
+    <canvas id="myCanvas" width="800" heigth="600">
+    </canvas>
 
-    <script>
-        var c = document.getElementById("myCanvas");
-        var ctx = c.getContext("2d");
-        ctx.beginPath();
-        ctx.arc(100, 75, 50, 0, 2 * Math.PI);
-        ctx.stroke();
-    </script>
-    
 </body>
+
+<script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+    ctx.stroke();
+</script>
+
 </html>
