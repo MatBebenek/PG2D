@@ -22,21 +22,42 @@
     var color = "#008000";
     var color2 = "#3498db";
 
-    function drawing() {
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    
+    var p = { x: 25, y: 25 };
+    var velo = 3,
+    corner = 50,
+    rad = 20;
+    var ball = { x: p.x, y: p.y };
+    var moveX = Math.cos(Math.PI / 180 * corner) * velo;
+    var moveY = Math.sin(Math.PI / 180 * corner) * velo;
+
+    function coloring() {
         ctx.fillStyle = ctx.fillStyle === color ? color2 : color;
         ctx.fill();
     }
 
-    var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
-    ctx.beginPath();
-    ctx.arc(100, 75, 50, 0, 2 * Math.PI);
-    ctx.stroke();
+    function bouncing() {
+        ctx.clearRect(0, 0, 800, 600);
+
+        if (ball.x > c.width - rad || ball.x < rad) moveX = -moveX;
+        if (ball.y > c.height - rad || ball.y < rad) moveY = -moveY;
+
+        ball.x += moveX;
+        ball.y += moveY;
+
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, rad, 0, Math.PI * 2, false);
+        ctx.closePath();
+        }
+    
     ctx.fillStyle = color;
     ctx.fill();
 
-    window.requestAnimationFrame(drawing);
-    setInterval(drawing,1000);
+    window.requestAnimationFrame(coloring);
+    setInterval(bouncing,10);
+    setInterval(coloring,10);
 
 </script>
 
