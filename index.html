@@ -30,7 +30,6 @@
     corner = 50,
     rad = 20;
     var ball = { x: p.x, y: p.y };
-    var moveX = Math.cos(Math.PI / 180 * corner) * velo;
     var moveY = Math.sin(Math.PI / 180 * corner) * velo;
 
     function coloring() {
@@ -40,11 +39,9 @@
 
     function bouncing() {
         ctx.clearRect(0, 0, 800, 600);
-
-        if (ball.x > c.width - rad || ball.x < rad) moveX = -moveX;
         if (ball.y > c.height - rad || ball.y < rad) moveY = -moveY;
 
-        ball.x += moveX;
+        ball.x = 25;
         ball.y += moveY;
 
         ctx.beginPath();
